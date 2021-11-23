@@ -1,0 +1,21 @@
+.o-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.o-modal-content {
+  position: absolute;
+  outline: none;
+  background-color: $white;
+  border-radius: 0.8rem;
+  margin: 0 1rem;
+  width: fit-content;
+  max-width: 90%;
+}

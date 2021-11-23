@@ -1,0 +1,26 @@
+@mixin position-fixed($bg-color) {
+  position: fixed !important;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: $z-index-fixed;
+  background: $bg-color;
+}
+
+@mixin position-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin position-sticky($bg-color) {
+  position: sticky;
+  left: 0;
+  top: 0;
+  background: $bg-color;
+}
+
+@mixin cursor($cursor-type) {
+  cursor: $cursor-type;
+}
