@@ -1,6 +1,8 @@
 import React from 'react';
 
-let uniqueNoteId = 0;
+const generateUniqueId = () => {
+  return Math.floor(Math.random() * 10000)
+}
 
 const reducer = (state = [], action) => {
   console.log("previous-state", state );
@@ -8,25 +10,24 @@ const reducer = (state = [], action) => {
     case 'add': 
       console.log("in add");
       let newNote = {
-        id: uniqueNoteId++,
+        id: generateUniqueId(),
         text: "",
         completed: false
       };
       return [
         ...state,
         newNote
-    ]
+      ]
     case 'update':
       console.log("in update");
-      const todos = state.filter((todo) => {return todo.id !== action.id})
-      return [
-        ...todos,
-        {
-          id: action.id,
-          text: action.text,
-          completed: false
-        }
-      ]
+      let newTodo = {
+        id: action.id,
+        text: action.text,
+        completed: false
+      };
+      return state.map((todo) => {
+          return todo.id === action.id ? newTodo : todo
+      })
     default: 
       return state
   }
@@ -38,7 +39,6 @@ const ToDo = () => {
   return (
     <>
       <button onClick={() => {
-        console.log("onClick", uniqueNoteId);
         dispatch({type: 'add'})
       }}>Add</button>
       <div>
@@ -46,20 +46,18 @@ const ToDo = () => {
         todos.map(({id, text, completed}) => {
           console.log("id", id);
           return (
-            <div>
+            <div key={id}>
               <input type="checkbox" id={id}></input>
-              {/* <input 
+              <input 
                 type="text" 
                 id={id}
                 name={id}
                 value={text}
                 onChange={(e) => {
                   let {value} = e.target;
-                  console.log("value", value);
-                  console.log("id", id);
                   dispatch({type: 'update', id, text: value})
                 }}
-              /> */}
+              />
             </div>
           )
         })
