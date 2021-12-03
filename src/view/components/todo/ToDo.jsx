@@ -18,21 +18,6 @@ const reducer = (state = [], action) => {
         ...state,
         newNote
       ]
-    case 'update':
-      console.log("in update");
-      let newTodo = {
-        id: action.id,
-        text: action.text,
-        completed: false
-      };
-      return state.map((todo) => {
-          return todo.id === action.id ? newTodo : todo
-      })
-    case 'remove':
-      console.log("in remove");
-      return state.filter((todo) => {
-          return todo.id !== action.id
-      })
     default: 
       return state
   }
@@ -62,7 +47,6 @@ const ToDo = () => {
                   let {value} = e.target;
                   dispatch({type: 'update', id, text: value})
                 }}
-                disabled="true"
               />
               <button 
                 type="button" 
