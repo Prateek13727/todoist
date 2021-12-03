@@ -40,27 +40,15 @@
  
  * EXTRAS
  */
-@import "settings/all";
+@import 'settings/all';
 
-@import "tools/all";
+@import 'tools/all';
 
-@import "generics/generic.box_sizing";
-@import "generics/generic.reset";
+@import 'generics/generic.box_sizing';
+@import 'generics/generic.reset';
 
-@import "objects/obj.modal";
+@import 'objects/obj.modal';
 
-@import "components/material-ui/cmp.mui.login-form-cta";
-@import "components/material-ui/cmp.mui-form-input-text";
+@import 'components/cmp.button-close';
 
-@import "components/cmp.admin-profile-form";
-@import "components/cmp.background-image-hoc";
-@import "components/cmp.button-loader";
-@import "components/cmp.login-form-header";
-@import "components/cmp.login-form-hoc";
-@import "components/cmp.login-hoc";
-@import "components/cmp.pfe-containter";
-@import "components/cmp.porter-logo";
-@import "components/cmp.resend-otp";
-@import "components/cmp.verify-otp-form";
-
-@import "extras/all";
+@import 'extras/all';
