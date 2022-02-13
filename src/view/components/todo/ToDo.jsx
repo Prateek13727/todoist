@@ -12,32 +12,47 @@ const reducer = (state = [], action) => {
       let newNote = {
         id: generateUniqueId(),
         text: action.text,
-        completed: false
+        is_completed: false
       };
       return [
         ...state,
         newNote
       ]
+    case 'remove':
+      return state.filter((todo) => action.id !== todo.id)
+    case 'toggle-status':
+      return state.map(({id, text, is_completed}) => {
+        return action.id === id ?
+          {
+            id,
+            text,
+            is_completed: !is_completed
+          } 
+          :
+          {
+            id,
+            text,
+            is_completed
+          } 
+      })
     default: 
       return state
   }
 };
 
-
 const ToDo = () => {
   const [todos, dispatch] = React.useReducer(reducer, []);
   return (
     <>
-      {/* <button onClick={() => {
-        dispatch({type: 'add'})
-      }}>Add</button> */}
       <AddTodo addTodo={(text) =>  dispatch({type: 'add', text})} />
       <div>
-        {
-        todos.map(({id, text, completed}) => {
+      {
+        todos.map(({id, text, is_completed}) => {
           return (
             <div key={id}>
-              <input type="checkbox" id={id}></input>
+              <input type="checkbox" id={id} onClick={(e) => {
+                 dispatch({type: 'toggle-status', id})
+              }}></input>
               <input 
                 type="text" 
                 id={id}
@@ -47,10 +62,11 @@ const ToDo = () => {
                   let {value} = e.target;
                   dispatch({type: 'update', id, text: value})
                 }}
+                className={is_completed ? "c-item": ""}
               />
               <button 
                 type="button" 
-                class="btn-close" 
+                className="btn-close" 
                 aria-label="Close"
                 onClick={(e) => {
                   dispatch({type: 'remove', id})
