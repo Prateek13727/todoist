@@ -7,7 +7,7 @@ import './Main.css';
 
 const Taskbar = () => {
   return <div>
-    Taskbar
+    My Todo List
   </div>
 }
 

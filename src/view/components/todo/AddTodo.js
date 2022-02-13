@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Button } from 'react-bootstrap';
 
 export default function App({addTodo}) {
   const { 
@@ -17,7 +18,7 @@ export default function App({addTodo}) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}> 
       <input {...register("newTodo", { required: true })} />
-      <input type="submit" disabled={!formState.isValid}/>
+      <Button disabled={!formState.isValid} onClick={handleSubmit(onSubmit)}>Add</Button>
     </form>
   );
-} 
+}   
