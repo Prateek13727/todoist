@@ -55,6 +55,7 @@ const ToDo = () => {
               }}></input>
               <input 
                 type="text" 
+                disabled={true}
                 id={id}
                 name={id}
                 value={text}
