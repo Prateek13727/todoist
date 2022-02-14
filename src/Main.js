@@ -15,8 +15,10 @@ function Main() {
   return (
     <>
       <Router>
-        <Taskbar />
-        <Workspace />
+        <div className='container'>
+          <Taskbar />
+          <Workspace />
+        </div>
       </Router>
     </>
   )

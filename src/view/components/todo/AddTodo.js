@@ -17,8 +17,11 @@ export default function App({addTodo}) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}> 
-      <input {...register("newTodo", { required: true })} />
-      <Button disabled={!formState.isValid} onClick={handleSubmit(onSubmit)}>Add</Button>
+      <div>
+        <input {...register("newTodo", { required: true })} />
+        <span>&nbsp;</span>
+        <button disabled={!formState.isValid} onClick={handleSubmit(onSubmit)}>Add</button>
+      </div>
     </form>
   );
 }   

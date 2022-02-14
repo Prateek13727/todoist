@@ -71,7 +71,7 @@ const ToDo = () => {
       {
         todos.map(({id, text, is_completed}) => {
           return (
-            <div key={id} className="row">
+            <div key={id} className="row my-2">
               <div className='col-sm-1'>
                 <input type="checkbox" id={id} onClick={(e) => {
                   dispatch({type: 'toggle-status', id})
