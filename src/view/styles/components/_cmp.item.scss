@@ -1,0 +1,9 @@
+.c-item {
+  border: none;
+  width: 100%;
+}
+
+.c-item-completed {
+  @extend .c-item;
+  text-decoration: line-through;
+}

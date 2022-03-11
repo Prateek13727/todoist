@@ -7,7 +7,7 @@ import './Main.css';
 
 const Taskbar = () => {
   return <div>
-    Taskbar
+    My Todo List
   </div>
 }
 
@@ -15,8 +15,10 @@ function Main() {
   return (
     <>
       <Router>
-        <Taskbar />
-        <Workspace />
+        <div className='container'>
+          <Taskbar />
+          <Workspace />
+        </div>
       </Router>
     </>
   )
